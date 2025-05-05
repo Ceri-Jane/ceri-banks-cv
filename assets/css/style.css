@@ -19,7 +19,12 @@ body {
     background-color: white;
 }
 
+#navbar .logo {
+    width: 40px;
+  }
+
 footer {
+    color: #23b887;
     background-color: white;
 }
 
@@ -36,6 +41,6 @@ footer {
   }
   
   #social-networks i {
-    font-size: 150%;
-    color: black;
+    font-size: 300%;
+    color: #23b887;
   }

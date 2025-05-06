@@ -45,3 +45,17 @@ footer {
     font-size: 300%;
     color: #23b887;
   }
+
+  .contact-me {
+    font-size: 800%;
+    color: #23b887;
+  }
+
+  #download {
+    position: relative;
+    width: 230px;
+    height: 80px;
+    margin: 2px auto;
+    background-color: white;
+    overflow: hidden;
+  }

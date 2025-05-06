@@ -61,7 +61,6 @@
     <!--Main element to hold all key sections of the page.-->
     <main>
 
-
         <section class="container section">
             <div class="col-12 text-center">
 
@@ -71,33 +70,10 @@
 
             </div>
           </section>
-
-          <a href="#" id="downloadLink">Download Sample PDF</a>
-
-<script>
-  document.getElementById('downloadLink').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    // Example file: replace this with your own file path
-    const fileUrl = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
-    const fileName = 'sample.pdf';
-
-    const a = document.createElement('a');
-    a.href = fileUrl;
-
-    // Only use download attribute for same-origin or CORS-enabled files
-    a.setAttribute('download', fileName);
-
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
-</script>
-
     
     </main>
 
-    <!--Footer-->
+        <!--Footer-->
     <!-- mt-auto added to push footer to the bottom of the page -->
     <footer class="mt-auto">
       <div class="container">
@@ -125,7 +101,7 @@
           <!--CV Download link-->
           <div class="col-12 col-md-6 col-xl-4 text-center mt-4">       
             <p><i class="fa-solid fa-file-arrow-down"></i>
-                <a class="link-opacity-50-hover link-success link-underline-success" href="https://1drv.ms/b/c/43ebeef0f9139e5c/Ec8g95RusWxCp0WpT5oXKikB74m4YJbN-534k9xySO_s-A?e=8ixChF"target="_blank" rel="noopener" aria-label="Download Ceri Banks' CV from her OneDrive (opens in a new tab)"">Download my CV as a PDF</a></p>        
+                <a class="link-opacity-50-hover link-success link-underline-success" href="assets/cv-pdf/Ceri Banks CV 06.05.2025.pdf" target="_blank" rel="noopener" aria-label="Download Ceri Banks' CV (opens in a new tab)">Download my CV as a PDF</a></p>        
         </div>
         </div>
       </div>

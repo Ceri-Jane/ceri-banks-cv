@@ -72,7 +72,27 @@
             </div>
           </section>
 
+          <a href="#" id="downloadLink">Download Sample PDF</a>
 
+<script>
+  document.getElementById('downloadLink').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Example file: replace this with your own file path
+    const fileUrl = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+    const fileName = 'sample.pdf';
+
+    const a = document.createElement('a');
+    a.href = fileUrl;
+
+    // Only use download attribute for same-origin or CORS-enabled files
+    a.setAttribute('download', fileName);
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+</script>
 
     
     </main>

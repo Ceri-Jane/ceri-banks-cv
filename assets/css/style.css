@@ -64,6 +64,12 @@ footer {
     align-content: center;
 }
 
+.contact-me-logo {
+  height: 300px;
+  width: 300px;
+  align-content: center;
+}
+
   #download {
     position: relative;
     width: 230px;

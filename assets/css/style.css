@@ -25,6 +25,11 @@ body {
 
 #web-dev-logo {
   max-width: 80%;
+  background-color: black;
+  }
+
+
+
 }
 
 footer {
@@ -54,6 +59,14 @@ footer {
     font-size: 800%;
     color: #23b887;
   }
+
+  .contact-me-image {
+    height: 300px;
+    width: 300px;
+    border-radius: 20%;
+    border: 10px solid black;
+    align-content: center;
+}
 
   #download {
     position: relative;

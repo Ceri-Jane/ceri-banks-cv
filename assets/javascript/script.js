@@ -1,8 +1,37 @@
-console.log("script.js loaded");  // Helps debug
-
-// Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Back to Top Button
+  console.log("script.js is running");
+
+  // 1. Typing Effect (only on index.html)
+  if (document.title.includes("Home")) {
+    const header = document.getElementById("header");
+    const text = "Hi, I'm Ceri Jane Banks – Web Developer.";
+    let i = 0;
+    const typeWriter = () => {
+      if (i < text.length) {
+        header.innerHTML = text.slice(0, i + 1);
+        i++;
+        setTimeout(typeWriter, 70);
+      }
+    };
+    typeWriter();
+  }
+
+  // 2. Scroll Reveal Animations
+  const revealElements = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  revealElements.forEach((el) => observer.observe(el));
+
+  // 3. Back to Top Button
   const backToTopBtn = document.createElement("button");
   backToTopBtn.id = "backToTopBtn";
   backToTopBtn.innerHTML = "↑";
@@ -20,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     borderRadius: "50%",
     display: "none",
     zIndex: 1000,
-    cursor: "pointer"
+    cursor: "pointer",
   });
 
   window.addEventListener("scroll", () => {
@@ -31,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // 2. Theme Toggle
+  // 4. Theme Toggle
   const themeToggle = document.createElement("button");
   themeToggle.id = "themeToggle";
   themeToggle.innerHTML = "🌓";
@@ -61,19 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark-theme");
   }
 
-  // 3. Navbar shrink on scroll
+  // 5. Navbar Shrink
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("navbar-shrink");
-    } else {
-      navbar.classList.remove("navbar-shrink");
-    }
+    navbar.classList.toggle("navbar-shrink", window.scrollY > 50);
   });
 
-  // 4. Hover effect on cards
-  const cards = document.querySelectorAll(".card");
-  cards.forEach(card => {
+  // 6. Card Hover
+  document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-5px)";
       card.style.transition = "transform 0.3s ease";
@@ -83,14 +107,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 5. Pulse effect on contact icons
-  const contactIcons = document.querySelectorAll(".contact-me");
-  contactIcons.forEach(icon => {
-    icon.addEventListener("mouseenter", () => {
-      icon.classList.add("fa-beat");
+  // 7. Icon Pulse on Hover
+  document.querySelectorAll(".contact-me").forEach((icon) => {
+    icon.addEventListener("mouseenter", () => icon.classList.add("fa-beat"));
+    icon.addEventListener("mouseleave", () => icon.classList.remove("fa-beat"));
+  });
+
+
+
+  Object.assign(hireBtn.style, {
+    position: "fixed",
+    bottom: "90px",
+    right: "20px",
+    padding: "12px 18px",
+    backgroundColor: "#23b887",
+    color: "white",
+    border: "none",
+    borderRadius: "30px",
+    zIndex: 1000,
+    cursor: "pointer",
+    fontWeight: "bold",
+  });
+
+  hireBtn.addEventListener("click", () => {
+    const contactSection = document.getElementById("repos") || document.querySelector("footer");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      alert("Contact section not found.");
+    }
+  });
+
+  // 9. CV Modal
+  document.querySelectorAll("a[href$='.pdf']").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const modal = document.getElementById("cvModal");
+      const downloadBtn = modal.querySelector("#confirmDownload");
+      modal.style.display = "flex";
+      downloadBtn.onclick = () => {
+        modal.style.display = "none";
+        window.open(this.href, "_blank");
+      };
     });
-    icon.addEventListener("mouseleave", () => {
-      icon.classList.remove("fa-beat");
-    });
+  });
+
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("cvModal").style.display = "none";
   });
 });

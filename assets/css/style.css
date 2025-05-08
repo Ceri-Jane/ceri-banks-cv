@@ -18,6 +18,24 @@ body {
     color: #eee;
 }
 
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: modal styling override for light/dark */
+.dark-theme #cvModal div {
+  background-color: #222;
+  color: #eee;
+}
+
 /* Navbar shrink effect */
 .navbar-shrink {
     padding-top: 0.25rem !important;

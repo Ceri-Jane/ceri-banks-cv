@@ -23,6 +23,10 @@ body {
     width: 40px;
   }
 
+#web-dev-logo {
+  max-width: 80%;
+}
+
 footer {
     color: #23b887;
     background-color: white;
@@ -59,3 +63,49 @@ footer {
     background-color: white;
     overflow: hidden;
   }
+
+/*Make all github deployment cards the same height for consistency*/
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+
+  #repos .card-body {
+    min-height: 275px;
+  }
+
+  #repos .card-header {
+    min-height: 150px;
+  }
+}  
+
+/* large devices (small laptops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #repos .card-body {
+      min-height: 200px;
+    }
+
+    #repos .card-header {
+      min-height: 200px;
+    }
+  }
+
+/* xl devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  #repos .card-body {
+    min-height: 350px;
+  }
+
+  #repos .card-header {
+    min-height: 120px;
+  }
+}
+
+/* xxl devices (larger desktops, 1400px and up) */
+@media screen and (min-width: 1400px) {
+  #repos .card-body {
+    min-height: 275px;
+  }
+
+  #repos .card-header {
+    min-height: 140px;
+  }
+}

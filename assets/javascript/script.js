@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Typing Effect (only on index.html)
   if (document.title.includes("Home")) {
     const header = document.getElementById("header");
-    const text = "Hi, I'm Ceri Jane Banks – Web Developer.";
+    const text = "Ceri Jane Banks CV";
     let i = 0;
     const typeWriter = () => {
       if (i < text.length) {
